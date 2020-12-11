@@ -29,15 +29,34 @@ function TaskForm(props) {
 	
 	return (
     <form className="task-form" onSubmit={handleSubmit}>
+			{props.edit ? (		
+			<>
 			<input 
 			type="text" 
-			placeholder="Add a task" 
+			placeholder="Edit your task" 
 			value={input} name="text" 
-			className="task-input" 
+			className="task-input edit" 
 			onChange={handleChange}
 			ref={inputRef}
 			/>
-      <button className="task-button">Add Task</button>
+			<button className="task-button edit">Edit Task</button>
+			</>
+			) : 
+			(		
+			<>
+				<input 
+				type="text" 
+				placeholder="Add a task" 
+				value={input} name="text" 
+				className="task-input" 
+				onChange={handleChange}
+				ref={inputRef}
+				/>
+				<button className="task-button">Add Task</button>
+			</>
+			)
+			}
+	
     </form>
   )
 }
