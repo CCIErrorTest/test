@@ -9,7 +9,7 @@ const addTask = task => {
 	// console.log('this is task', task)
 	// code to prevent multiple spaces in task input box, ensures that a task is inputed not just a space
 	if (!task.text || /^\s*$/.test(task.text)) {
-		return
+		return;
 	}
 
 	const newTasks = [task, ...tasks]
@@ -18,11 +18,18 @@ const addTask = task => {
 	// console.log('this is tasks:',...tasks)
 }
 
+const updateTask = (taskId, newValue) => {
+	if (!newValue.text || /^\s*$/.test(newValue.text)) {
+		return;
+	}
+	setTasks(prev => prev.map(item => (item.id === taskId ? newValue : item)));
+};
+
 const removeTask = id => {
 	const removeArr = [...tasks].filter(task => task.id !== id);
-	setTasks(removeArr)
-	return
-}
+	setTasks(removeArr);
+	return;
+};
 
 const completeTask = id => {
 	let updatedTasks = tasks.map(task => {
@@ -38,7 +45,7 @@ const completeTask = id => {
     <div>
       <h1>What Do You Have to Get Done Today?</h1>
       <TaskForm onSubmit={addTask}/>
-			<Task tasks={tasks} completeTask={completeTask} removeTask={removeTask}/>
+			<Task tasks={tasks} completeTask={completeTask} removeTask={removeTask} updateTask={updateTask}/>
     </div>
   );
 };
