@@ -1,12 +1,13 @@
 import React  from 'react';
 import './App.css';
-import TaskForm from './components/TaskForm.js';
+import TaskList from './components/TaskList';
 
 
 function App() {
   return (
-    <div className="todo-list">
-      <TaskForm/>
+    <div className="task-list">
+      <TaskList/>
+    
     </div>
   );
 }
