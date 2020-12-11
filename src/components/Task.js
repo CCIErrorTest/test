@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import TaskForm from './TaskForm';
-import TaskList from './TaskList';
 import {RiCloseCircleLine} from 'react-icons/ri';
 import {TiEdit} from 'react-icons/ti';
 
@@ -12,17 +10,20 @@ function Task({tasks, completeTask}) {
   });
 
   return tasks.map((task, index) => {
+		return(
 		<div className={task.isComplete ? 'task-row complete' : 'task-row'} key={index}>
 
 			<div key={task.id} onClick={() => completeTask(task.id)}>
 				{task.text}
 			</div>
 			<div className='icons'>
-				<RiCloseCircleLine/>
+				<RiCloseCircleLine
+				/>
 				<TiEdit/>
 			</div>
 
 		</div>
+		);
 	});
 }
 
