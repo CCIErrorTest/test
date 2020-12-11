@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import TaskForm from './TaskForm.js';
+import Task from './Task';
 
 function TaskList() {
 const [tasks, setTasks] = useState([])
@@ -16,12 +17,24 @@ const addTask = task => {
 	setTasks(newTasks)
 	// console.log('this is tasks:',...tasks)
 }
+
+const completeTask = id => {
+	let updatedTasks = tasks.map(task => {
+		if (task.id === id) {
+			task.isComplete = !task.isComplete;
+		}
+		return task;
+	});
+	setTasks(updatedTasks);			
+};
+
   return (
     <div>
       <h1>What Do You Have to Get Done Today?</h1>
       <TaskForm onSubmit={addTask}/>
+			<Task tasks={tasks} completeTask={completeTask}/>
     </div>
-  )
-}
+  );
+};
 
 export default TaskList
