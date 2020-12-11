@@ -3,7 +3,7 @@ import {RiCloseCircleLine} from 'react-icons/ri';
 import {TiEdit} from 'react-icons/ti';
 
 
-function Task({tasks, completeTask}) {
+function Task({tasks, completeTask, removeTask}) {
   const [edit, setEdit] = useState({
      id: null,
      value: ''
@@ -18,8 +18,13 @@ function Task({tasks, completeTask}) {
 			</div>
 			<div className='icons'>
 				<RiCloseCircleLine
+				className='delete-icon'
+				onClick={()=> removeTask(task.id)}
 				/>
-				<TiEdit/>
+				<TiEdit
+				className='edit-icon'
+				onClick={() => setEdit({id: task.id, value: task.text})}
+				/>
 			</div>
 
 		</div>
