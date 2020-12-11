@@ -18,6 +18,12 @@ const addTask = task => {
 	// console.log('this is tasks:',...tasks)
 }
 
+const removeTask = id => {
+	const removeArr = [...tasks].filter(task => task.id !== id);
+	setTasks(removeArr)
+	return
+}
+
 const completeTask = id => {
 	let updatedTasks = tasks.map(task => {
 		if (task.id === id) {
@@ -32,7 +38,7 @@ const completeTask = id => {
     <div>
       <h1>What Do You Have to Get Done Today?</h1>
       <TaskForm onSubmit={addTask}/>
-			<Task tasks={tasks} completeTask={completeTask}/>
+			<Task tasks={tasks} completeTask={completeTask} removeTask={removeTask}/>
     </div>
   );
 };
