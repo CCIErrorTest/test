@@ -105,6 +105,7 @@ h1 {
   padding: 16px;
   border-radius: 5px;
   width: 90%;
+  cursor: pointer;
 }
 
 .task-row:nth-child(4n + 1) {
@@ -129,6 +130,10 @@ h1 {
     rgba(20, 159, 255, 1) 0%,
     rgba(17, 122, 255, 1) 100%
   );
+}
+
+.task-row:hover {
+  transform: scale(1.1);
 }
 
 .icons {
