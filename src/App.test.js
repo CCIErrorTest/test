@@ -20,3 +20,16 @@ test("renders task list header to page", () => {
     const header = screen.getByText(/what do you have to get done today?/i);
     expect(header).toBeInTheDocument();
 })
+
+test("renders task list header to page", () => {
+    render(<TaskList/>)
+    const header = screen.getByText(/what do you have to get done today?/i);
+    expect(header).toBeInTheDocument();
+})
+
+
+test("renders task list subheader to page", () => {
+    render(<TaskList/>)
+    const subheader = screen.getByText(/Dont procrastinate!/i);
+    expect(subheader).toBeInTheDocument();
+})
