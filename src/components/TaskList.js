@@ -44,6 +44,7 @@ const completeTask = id => {
   return (
     <div>
       <h1>What Do You Have to Get Done Today?</h1>
+	  <h2>Dont procrastinate!</h2>
       <TaskForm onSubmit={addTask}/>
 			<Task tasks={tasks} completeTask={completeTask} removeTask={removeTask} updateTask={updateTask}/>
     </div>
