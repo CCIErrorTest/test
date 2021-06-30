@@ -49,7 +49,7 @@ function TaskForm(props) {
 							onChange={handleChange}
 							ref={inputRef}
 						/>
-						<button className="task-button">Add Task</button>
+						<button className="task-button">Add New Task</button>
 					</>
 				)
 			}
