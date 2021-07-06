@@ -36,7 +36,7 @@ function TaskForm(props) {
 						onChange={handleChange}
 						ref={inputRef}
 					/>
-					<button className="task-button edit">Edit Your Task</button>
+					<button className="task-button edit">Edit Task</button>
 				</>
 			) :
 				(
