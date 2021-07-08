@@ -1,4 +1,6 @@
-version: 2
+version: 2.1
+orbs:
+  slack: circleci/slack@4.4.2
 jobs:
   build:
     docker:
@@ -24,7 +26,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: yarn test
-
       - run: yarn build
+      - slack/notify:
+          channel: test_slack_orb
+          event: fail
+          template: basic_fail_1
 
