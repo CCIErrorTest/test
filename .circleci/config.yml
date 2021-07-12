@@ -2,8 +2,6 @@ version: 2.1
 orbs:
   slack: circleci/slack@4.4.2
 jobs:
-  context: 
-    - SlackOrb
   build:
     docker:
       - image: node:11.10.1
